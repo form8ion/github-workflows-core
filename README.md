@@ -14,6 +14,8 @@ core functionality for form8ion plugins that manage github workflows
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -25,6 +27,7 @@ core functionality for form8ion plugins that manage github workflows
 [![MIT license][license-badge]][license-link]
 [![npm][npm-badge]][npm-link]
 [![Try @form8ion/github-workflows-core on RunKit][runkit-badge]][runkit-link]
+![node][node-badge]
 
 <!--consumer-badges end -->
 
@@ -39,16 +42,55 @@ $ npm install @form8ion/github-workflows-core --save-prod
 #### Import
 
 ```javascript
-import {scaffold} from './lib/index.cjs';
+import {
+  scaffoldCheckoutStep,
+  scaffoldNodeSetupStep,
+  scaffoldDependencyInstallationStep,
+  scaffoldVerificationStep
+} from '@form8ion/github-workflows-core';
 ```
 
 #### Execute
 
 ```javascript
 (async () => {
-  await scaffold({projectRoot: process.cwd()});
+  scaffoldCheckoutStep();
+
+  scaffoldNodeSetupStep({versionDeterminedBy: 'nvmrc'});
+
+  scaffoldDependencyInstallationStep();
+
+  scaffoldVerificationStep();
 })();
 ```
+
+### API
+
+#### `scaffoldCheckoutStep`
+
+Scaffolder to define the details for a step to check out the project in a
+GitHub workflow
+
+#### `scaffoldNodeSetupStep`
+
+Scaffolder to define the details for a step to set up a node.js environment in
+a GitHub workflow
+
+Takes a single options object as an argument, containing:
+
+##### `versionDeterminedBy` __string__ (_required_)
+
+Source of node version for use in the configured step. Valid options are `nvmrc`
+or `matrix`
+
+#### `scaffoldDependencyInstallationStep`
+
+Scaffolder to define the details for a step to install dependencies in a GitHub
+workflow
+
+#### `scaffoldVerificationStep`
+
+Scaffolder to define the details for a step to execute verification
 
 ## Contributing
 
@@ -114,3 +156,5 @@ $ npm test
 [runkit-link]: https://npm.runkit.com/@form8ion/github-workflows-core
 
 [runkit-badge]: https://badge.runkitcdn.com/@form8ion/github-workflows-core.svg
+
+[node-badge]: https://img.shields.io/node/v/@form8ion/github-workflows-core?logo=node.js
