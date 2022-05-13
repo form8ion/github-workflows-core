@@ -64,6 +64,34 @@ import {
 })();
 ```
 
+### API
+
+#### `scaffoldCheckoutStep`
+
+Scaffolder to define the details for a step to check out the project in a
+GitHub workflow
+
+#### `scaffoldNodeSetupStep`
+
+Scaffolder to define the details for a step to set up a node.js environment in
+a GitHub workflow
+
+Takes a single options object as an argument, containing:
+
+##### `versionDeterminedBy` __string__ (_required_)
+
+Source of node version for use in the configured step. Valid options are `nvmrc`
+or `matrix`
+
+#### `scaffoldDependencyInstallationStep`
+
+Scaffolder to define the details for a step to install dependencies in a GitHub
+workflow
+
+#### `scaffoldVerificationStep`
+
+Scaffolder to define the details for a step to execute verification
+
 ## Contributing
 
 <!--contribution-badges start -->
