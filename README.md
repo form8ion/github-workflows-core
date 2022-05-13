@@ -14,6 +14,8 @@ core functionality for form8ion plugins that manage github workflows
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -40,14 +42,25 @@ $ npm install @form8ion/github-workflows-core --save-prod
 #### Import
 
 ```javascript
-import {scaffold} from './lib/index.cjs';
+import {
+  scaffoldCheckoutStep,
+  scaffoldNodeSetupStep,
+  scaffoldDependencyInstallationStep,
+  scaffoldVerificationStep
+} from '@form8ion/github-workflows-core';
 ```
 
 #### Execute
 
 ```javascript
 (async () => {
-  await scaffold({projectRoot: process.cwd()});
+  scaffoldCheckoutStep();
+
+  scaffoldNodeSetupStep({versionDeterminedBy: 'nvmrc'});
+
+  scaffoldDependencyInstallationStep();
+
+  scaffoldVerificationStep();
 })();
 ```
 

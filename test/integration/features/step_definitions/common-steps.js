@@ -10,11 +10,9 @@ After(function () {
 
 When('the project is scaffolded', async function () {
   // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
-  const {scaffold} = require('@form8ion/github-workflows-core');
+  require('@form8ion/github-workflows-core');
 
   stubbedFs({
     node_modules: stubbedNodeModules
   });
-
-  await scaffold({projectRoot: process.cwd()});
 });

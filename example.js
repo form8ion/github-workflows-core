@@ -1,7 +1,12 @@
 // #### Import
 // remark-usage-ignore-next
 import stubbedFs from 'mock-fs';
-import {scaffold} from './lib/index.js';
+import {
+  scaffoldCheckoutStep,
+  scaffoldNodeSetupStep,
+  scaffoldDependencyInstallationStep,
+  scaffoldVerificationStep
+} from './lib/index.js';
 
 // remark-usage-ignore-next
 stubbedFs();
@@ -9,5 +14,11 @@ stubbedFs();
 // #### Execute
 
 (async () => {
-  await scaffold({projectRoot: process.cwd()});
+  scaffoldCheckoutStep();
+
+  scaffoldNodeSetupStep({versionDeterminedBy: 'nvmrc'});
+
+  scaffoldDependencyInstallationStep();
+
+  scaffoldVerificationStep();
 })();
