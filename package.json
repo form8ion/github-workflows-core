@@ -53,7 +53,8 @@
     "lib/"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "devDependencies": {
     "@babel/register": "7.21.0",
