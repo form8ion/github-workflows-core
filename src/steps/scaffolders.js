@@ -16,7 +16,10 @@ export function executeVerification() {
 }
 
 export function installDependencies() {
-  return {run: 'npm clean-install'};
+  return [
+    {run: 'npm clean-install'},
+    {run: 'npm audit signatures'}
+  ];
 }
 
 export function checkout() {
