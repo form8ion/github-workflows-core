@@ -1,6 +1,6 @@
 import {assert} from 'chai';
 
-import {checkout, installDependencies, executeVerification, setupNode} from './scaffolders';
+import {checkout, installDependencies, executeVerification, setupNode} from './scaffolders.js';
 
 suite('step scaffolders', () => {
   test('that the checkout step details are scaffolded', async () => {
