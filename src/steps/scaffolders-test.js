@@ -23,7 +23,7 @@ suite('step scaffolders', () => {
   });
 
   test('that dependencies are installed correctly', async () => {
-    assert.deepEqual(installDependencies(), [{run: 'npm clean-install'}, {run: 'npm audit signatures'}]);
+    assert.deepEqual(installDependencies(), [{run: 'npm clean-install'}, {run: 'corepack npm audit signatures'}]);
   });
 
   test('that verification is executed correctly', async () => {
