@@ -6,6 +6,7 @@ core functionality for form8ion plugins that manage github workflows
 
 [![Node CI Workflow Status][github-actions-ci-badge]][github-actions-ci-link]
 [![Codecov][coverage-badge]][coverage-link]
+![SLSA Level 2][slsa-badge]
 
 <!--status-badges end -->
 
@@ -158,3 +159,5 @@ $ npm test
 [runkit-badge]: https://badge.runkitcdn.com/@form8ion/github-workflows-core.svg
 
 [node-badge]: https://img.shields.io/node/v/@form8ion/github-workflows-core?logo=node.js
+
+[slsa-badge]: https://slsa.dev/images/gh-badge-level2.svg
