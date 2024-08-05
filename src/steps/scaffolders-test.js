@@ -4,7 +4,7 @@ import {checkout, installDependencies, executeVerification, setupNode} from './s
 
 suite('step scaffolders', () => {
   test('that the checkout step details are scaffolded', async () => {
-    assert.deepEqual(checkout(), {uses: 'actions/checkout@v3'});
+    assert.deepEqual(checkout(), {uses: 'actions/checkout@v3.6.0'});
   });
 
   test('that node is set up correctly when version is determined from the `.nvmrc`', async () => {
