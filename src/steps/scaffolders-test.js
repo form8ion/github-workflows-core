@@ -17,8 +17,12 @@ suite('step scaffolders', () => {
   test('that node is set up correctly when the version is determined based on a matrix', async () => {
     assert.deepEqual(
       setupNode({versionDeterminedBy: 'matrix'}),
-      // eslint-disable-next-line no-template-curly-in-string
-      {name: 'Setup node', uses: 'actions/setup-node@v4.0.3', with: {'node-version': '${{ matrix.node }}', cache: 'npm'}}
+      {
+        name: 'Setup node',
+        uses: 'actions/setup-node@v4.0.3',
+        // eslint-disable-next-line no-template-curly-in-string
+        with: {'node-version': '${{ matrix.node }}', cache: 'npm'}
+      }
     );
   });
 
