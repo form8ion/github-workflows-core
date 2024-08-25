@@ -36,7 +36,7 @@
     "build": "npm-run-all --print-label --parallel build:*",
     "prepack": "run-s build",
     "test:unit": "cross-env NODE_ENV=test c8 run-s test:unit:base",
-    "test:unit:base": "DEBUG=any mocha 'src/**/*-test.js'",
+    "test:unit:base": "DEBUG=any vitest run",
     "lint:lockfile": "lockfile-lint",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "run-s 'lint:js -- --fix'",
@@ -57,7 +57,7 @@
     "access": "public",
     "provenance": true
   },
-  "packageManager": "npm@10.8.2",
+  "packageManager": "npm@10.8.2+sha512.c7f0088c520a46596b85c6f8f1da943400199748a0f7ea8cb8df75469668dc26f6fb3ba26df87e2884a5ebe91557292d0f3db7d0929cdb4f14910c3032ac81fb",
   "devDependencies": {
     "@babel/register": "7.24.6",
     "@cucumber/cucumber": "10.9.0",
@@ -69,17 +69,15 @@
     "@form8ion/remark-lint-preset": "6.0.4",
     "@rollup/plugin-babel": "6.0.4",
     "@travi/any": "3.1.2",
-    "babel-plugin-istanbul": "7.0.0",
     "ban-sensitive-files": "1.10.5",
     "c8": "10.1.2",
-    "chai": "4.5.0",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "gherkin-lint": "4.2.4",
     "husky": "9.1.5",
+    "jest-when": "3.6.0",
     "lockfile-lint": "4.14.0",
     "ls-engines": "0.9.3",
-    "mocha": "10.7.3",
     "mock-fs": "5.2.0",
     "npm-run-all2": "6.2.2",
     "publint": "0.2.10",
@@ -89,6 +87,6 @@
     "rimraf": "6.0.1",
     "rollup": "4.21.0",
     "rollup-plugin-auto-external": "2.0.0",
-    "sinon": "18.0.0"
+    "vitest": "2.0.5"
   }
 }
