@@ -17,6 +17,12 @@ core functionality for form8ion plugins that manage github workflows
   * [Example](#example)
     * [Import](#import)
     * [Execute](#execute)
+  * [API](#api)
+    * [`scaffoldCheckoutStep`](#scaffoldcheckoutstep)
+    * [`scaffoldNodeSetupStep`](#scaffoldnodesetupstep)
+      * [`versionDeterminedBy` __string__ (_required_)](#versiondeterminedby-string-required)
+    * [`scaffoldDependencyInstallationStep`](#scaffolddependencyinstallationstep)
+    * [`scaffoldVerificationStep`](#scaffoldverificationstep)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -47,7 +53,8 @@ import {
   scaffoldCheckoutStep,
   scaffoldNodeSetupStep,
   scaffoldDependencyInstallationStep,
-  scaffoldVerificationStep
+  scaffoldVerificationStep,
+  writeWorkflowFile
 } from '@form8ion/github-workflows-core';
 ```
 
@@ -62,6 +69,8 @@ import {
   scaffoldDependencyInstallationStep();
 
   scaffoldVerificationStep();
+
+  await writeWorkflowFile({projectRoot: process.cwd(), name: 'workflow-name', config: {}});
 })();
 ```
 

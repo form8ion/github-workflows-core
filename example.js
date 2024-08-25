@@ -5,11 +5,12 @@ import {
   scaffoldCheckoutStep,
   scaffoldNodeSetupStep,
   scaffoldDependencyInstallationStep,
-  scaffoldVerificationStep
+  scaffoldVerificationStep,
+  writeWorkflowFile
 } from './lib/index.js';
 
 // remark-usage-ignore-next
-stubbedFs();
+stubbedFs({node_modules: stubbedFs.load('node_modules'), '.github': {workflows: {}}});
 
 // #### Execute
 
@@ -21,4 +22,6 @@ stubbedFs();
   scaffoldDependencyInstallationStep();
 
   scaffoldVerificationStep();
+
+  await writeWorkflowFile({projectRoot: process.cwd(), name: 'workflow-name', config: {}});
 })();
