@@ -55,7 +55,8 @@ import {
   scaffoldDependencyInstallationStep,
   scaffoldVerificationStep,
   loadWorkflowFile,
-  writeWorkflowFile
+  writeWorkflowFile,
+  workflowFileExists
 } from '@form8ion/github-workflows-core';
 ```
 
@@ -73,7 +74,10 @@ const projectRoot = process.cwd();
 
   scaffoldVerificationStep();
 
-  await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  if (await workflowFileExists({projectRoot, name: 'existing-workflow-name'})) {
+    await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  }
+
   await writeWorkflowFile({projectRoot, name: 'workflow-name', config: {}});
 })();
 ```

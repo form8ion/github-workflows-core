@@ -7,7 +7,8 @@ import {
   scaffoldDependencyInstallationStep,
   scaffoldVerificationStep,
   loadWorkflowFile,
-  writeWorkflowFile
+  writeWorkflowFile,
+  workflowFileExists
 } from './lib/index.js';
 
 // remark-usage-ignore-next 4
@@ -29,6 +30,9 @@ const projectRoot = process.cwd();
 
   scaffoldVerificationStep();
 
-  await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  if (await workflowFileExists({projectRoot, name: 'existing-workflow-name'})) {
+    await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  }
+
   await writeWorkflowFile({projectRoot, name: 'workflow-name', config: {}});
 })();
