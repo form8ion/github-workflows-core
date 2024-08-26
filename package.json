@@ -90,6 +90,6 @@
     "vitest": "2.0.5"
   },
   "dependencies": {
-    "@form8ion/core": "^4.6.1"
+    "@form8ion/core": "^4.7.1"
   }
 }

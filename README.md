@@ -54,6 +54,7 @@ import {
   scaffoldNodeSetupStep,
   scaffoldDependencyInstallationStep,
   scaffoldVerificationStep,
+  loadWorkflowFile,
   writeWorkflowFile
 } from '@form8ion/github-workflows-core';
 ```
@@ -61,6 +62,8 @@ import {
 #### Execute
 
 ```javascript
+const projectRoot = process.cwd();
+
 (async () => {
   scaffoldCheckoutStep();
 
@@ -70,7 +73,8 @@ import {
 
   scaffoldVerificationStep();
 
-  await writeWorkflowFile({projectRoot: process.cwd(), name: 'workflow-name', config: {}});
+  await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  await writeWorkflowFile({projectRoot, name: 'workflow-name', config: {}});
 })();
 ```
 

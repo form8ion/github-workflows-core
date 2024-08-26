@@ -6,13 +6,19 @@ import {
   scaffoldNodeSetupStep,
   scaffoldDependencyInstallationStep,
   scaffoldVerificationStep,
+  loadWorkflowFile,
   writeWorkflowFile
 } from './lib/index.js';
 
-// remark-usage-ignore-next
-stubbedFs({node_modules: stubbedFs.load('node_modules'), '.github': {workflows: {}}});
+// remark-usage-ignore-next 4
+stubbedFs({
+  node_modules: stubbedFs.load('node_modules'),
+  '.github': {workflows: {'existing-workflow-name.yml': 'foo: bar'}}
+});
 
 // #### Execute
+
+const projectRoot = process.cwd();
 
 (async () => {
   scaffoldCheckoutStep();
@@ -23,5 +29,6 @@ stubbedFs({node_modules: stubbedFs.load('node_modules'), '.github': {workflows: 
 
   scaffoldVerificationStep();
 
-  await writeWorkflowFile({projectRoot: process.cwd(), name: 'workflow-name', config: {}});
+  await loadWorkflowFile({projectRoot, name: 'existing-workflow-name'});
+  await writeWorkflowFile({projectRoot, name: 'workflow-name', config: {}});
 })();

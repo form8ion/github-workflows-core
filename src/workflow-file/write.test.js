@@ -3,7 +3,7 @@ import {fileTypes, writeConfigFile} from '@form8ion/core';
 import any from '@travi/any';
 import {describe, expect, it, vi} from 'vitest';
 
-import writeWorflowFile from './write.js';
+import writeWorkflowFile from './write.js';
 
 vi.mock('@form8ion/core');
 
@@ -13,7 +13,7 @@ describe('workflow writer', () => {
     const name = any.word();
     const config = any.simpleObject();
 
-    await writeWorflowFile({projectRoot, config, name});
+    await writeWorkflowFile({projectRoot, config, name});
 
     expect(writeConfigFile).toHaveBeenCalledWith({
       path: `${projectRoot}/.github/workflows`,
