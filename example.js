@@ -8,7 +8,8 @@ import {
   scaffoldVerificationStep,
   loadWorkflowFile,
   writeWorkflowFile,
-  workflowFileExists
+  workflowFileExists,
+  renameWorkflowFile
 } from './lib/index.js';
 
 // remark-usage-ignore-next 4
@@ -35,4 +36,6 @@ const projectRoot = process.cwd();
   }
 
   await writeWorkflowFile({projectRoot, name: 'workflow-name', config: {}});
+
+  await renameWorkflowFile({projectRoot, oldName: 'existing-workflow-name', newName: 'new-workflow-name'});
 })();

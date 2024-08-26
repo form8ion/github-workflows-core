@@ -7,5 +7,6 @@ export {
 export {
   fileExists as workflowFileExists,
   load as loadWorkflowFile,
-  write as writeWorkflowFile
+  write as writeWorkflowFile,
+  rename as renameWorkflowFile
 } from './workflow-file/index.js';
