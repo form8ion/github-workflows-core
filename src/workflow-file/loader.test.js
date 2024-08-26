@@ -4,7 +4,7 @@ import {when} from 'jest-when';
 import any from '@travi/any';
 import {describe, expect, it, vi} from 'vitest';
 
-import loadWorkflowFile from './load.js';
+import loadWorkflowFile from './loader.js';
 
 vi.mock('@form8ion/core');
 

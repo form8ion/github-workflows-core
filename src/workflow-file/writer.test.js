@@ -3,7 +3,7 @@ import {fileTypes, writeConfigFile} from '@form8ion/core';
 import any from '@travi/any';
 import {describe, expect, it, vi} from 'vitest';
 
-import writeWorkflowFile from './write.js';
+import writeWorkflowFile from './writer.js';
 
 vi.mock('@form8ion/core');
 
