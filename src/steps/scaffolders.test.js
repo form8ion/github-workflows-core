@@ -4,7 +4,7 @@ import {checkout, executeVerification, installDependencies, setupNode} from './s
 
 describe('step scaffolders', () => {
   it('should scaffold the details of the checkout step', () => {
-    expect(checkout()).toEqual({uses: 'actions/checkout@v4.1.7'});
+    expect(checkout()).toEqual({uses: 'actions/checkout@v4.2.0'});
   });
 
   it('should set up node correctly when the version is determined from the `.nvmrc`', () => {
