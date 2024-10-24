@@ -1,7 +1,7 @@
 export function setupNode({versionDeterminedBy}) {
   return {
     name: 'Setup node',
-    uses: 'actions/setup-node@v4.0.4',
+    uses: 'actions/setup-node@v4.1.0',
     with: {
       ...'nvmrc' === versionDeterminedBy && {'node-version-file': '.nvmrc'},
       // eslint-disable-next-line no-template-curly-in-string
