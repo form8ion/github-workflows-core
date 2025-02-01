@@ -10,3 +10,4 @@ export {
   write as writeWorkflowFile,
   rename as renameWorkflowFile
 } from './workflow-file/index.js';
+export {default as test} from './tester.js';
