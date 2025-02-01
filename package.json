@@ -58,6 +58,9 @@
     "provenance": true
   },
   "packageManager": "npm@11.1.0+sha512.acf301ad9b9ddba948fcb72341e2f0fcae477f56a95cc2a092934d133a7461062633cefbf93d5934a3dc0768674e2edee9f04dcfcc4bb4c327ff0e3a7d552a1b",
+  "dependencies": {
+    "@form8ion/core": "^4.7.1"
+  },
   "devDependencies": {
     "@babel/register": "7.25.9",
     "@cucumber/cucumber": "10.9.0",
@@ -88,8 +91,5 @@
     "rollup": "4.32.1",
     "rollup-plugin-auto-external": "2.0.0",
     "vitest": "3.0.4"
-  },
-  "dependencies": {
-    "@form8ion/core": "^4.7.1"
   }
 }
