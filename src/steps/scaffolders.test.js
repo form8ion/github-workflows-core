@@ -25,7 +25,11 @@ describe('step scaffolders', () => {
   });
 
   it('should install dependencies correctly', () => {
-    expect(installDependencies()).toEqual([{run: 'npm clean-install'}, {run: 'corepack npm audit signatures'}]);
+    expect(installDependencies()).toEqual([
+      {run: 'npm clean-install'},
+      {run: 'npm install --global corepack@latest'},
+      {run: 'corepack npm audit signatures'}
+    ]);
   });
 
   it('should execute verification correctly', () => {

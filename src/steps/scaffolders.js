@@ -18,6 +18,7 @@ export function executeVerification() {
 export function installDependencies() {
   return [
     {run: 'npm clean-install'},
+    {run: 'npm install --global corepack@latest'},
     {run: 'corepack npm audit signatures'}
   ];
 }
