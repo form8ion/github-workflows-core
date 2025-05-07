@@ -1,12 +1,14 @@
 {
-  "$schema":"https://docs.renovatebot.com/renovate-schema.json",
-  "extends":["github>form8ion/renovate-config:js-package"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>form8ion/renovate-config:js-package"
+  ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update action versions in scaffolded workflow",
-      "fileMatch": [
-        "^src/steps/.+\\.js$"
+      "managerFilePatterns": [
+        "/^src/steps/.+\\.js$/"
       ],
       "matchStrings": [
         "uses: '(?<depName>.*?)@(?<currentValue>.*?)'"
