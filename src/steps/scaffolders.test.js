@@ -10,7 +10,7 @@ describe('step scaffolders', () => {
   it('should set up node correctly when the version is determined from the `.nvmrc`', () => {
     expect(setupNode({versionDeterminedBy: 'nvmrc'})).toEqual({
       name: 'Setup node',
-      uses: 'actions/setup-node@v4.4.0',
+      uses: 'actions/setup-node@v5',
       with: {'node-version-file': '.nvmrc', cache: 'npm'}
     });
   });
@@ -18,7 +18,7 @@ describe('step scaffolders', () => {
   it('should set up node correctly when the version is determined based on a matrix', () => {
     expect(setupNode({versionDeterminedBy: 'matrix'})).toEqual({
       name: 'Setup node',
-      uses: 'actions/setup-node@v4.4.0',
+      uses: 'actions/setup-node@v5',
       // eslint-disable-next-line no-template-curly-in-string
       with: {'node-version': '${{ matrix.node }}', cache: 'npm'}
     });
