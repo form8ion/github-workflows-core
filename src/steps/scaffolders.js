@@ -24,5 +24,5 @@ export function installDependencies() {
 }
 
 export function checkout() {
-  return {uses: 'actions/checkout@v5'};
+  return {uses: 'actions/checkout@v5.0.1'};
 }
