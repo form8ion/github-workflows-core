@@ -1,6 +1,6 @@
 import {fileExists} from '@form8ion/core';
 
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 import any from '@travi/any';
 import {describe, expect, it, vi} from 'vitest';
 
@@ -13,7 +13,7 @@ describe('workflow existence checker', () => {
     const projectRoot = any.string();
     const name = any.word();
     const exists = any.boolean();
-    when(fileExists).calledWith(`${projectRoot}/.github/workflows/${name}.yml`).mockResolvedValue(exists);
+    when(fileExists).calledWith(`${projectRoot}/.github/workflows/${name}.yml`).thenResolve(exists);
 
     expect(await workflowFileExists({projectRoot, name})).toBe(exists);
   });

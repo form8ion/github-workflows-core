@@ -4,6 +4,7 @@ extends:
   - '@form8ion'
   - '@form8ion/cucumber'
   - '@form8ion/mocha'
+  - '@form8ion/vitest'
 
 overrides:
   - files: ./vitest.config.js

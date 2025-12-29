@@ -1,6 +1,6 @@
 import {fileTypes, loadConfigFile} from '@form8ion/core';
 
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 import any from '@travi/any';
 import {describe, expect, it, vi} from 'vitest';
 
@@ -15,7 +15,7 @@ describe('workflow loader', () => {
     const workflowDetails = any.simpleObject();
     when(loadConfigFile)
       .calledWith({path: `${projectRoot}/.github/workflows`, name, format: fileTypes.YAML})
-      .mockResolvedValue(workflowDetails);
+      .thenResolve(workflowDetails);
 
     expect(await loadWorkflowFile({projectRoot, name})).toEqual(workflowDetails);
   });
