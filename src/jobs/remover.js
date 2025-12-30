@@ -6,7 +6,7 @@ export function removeActionFromJobs(jobs, actionName) {
       jobName,
       {
         ...job,
-        .../* job.steps &&  */{steps: removeActionFromSteps(job.steps, actionName)}
+        ...job.steps && {steps: removeActionFromSteps(job.steps, actionName)}
       }
     ]))
   );
