@@ -3,7 +3,7 @@ import any from '@travi/any';
 
 import {removeActionFromSteps} from './remover.js';
 
-describe('remover', () => {
+describe('steps-level remover', () => {
   const anyStep = ({actionName} = {}) => ({
     ...any.simpleObject(),
     ...actionName && {uses: `${any.string()}${actionName}${any.string()}`}
